@@ -1,4 +1,5 @@
 import { Task } from "../interfaces/Task"
+import { FcHighPriority } from "react-icons/fc";
 
 interface Props {
   task: Task
@@ -10,7 +11,10 @@ export const TaskCard = ({ task }: Props) => {
       <h2>{task.title} - {task.id}</h2>
       <p>{task.description}</p>
       <p>{task.completed ? "Completed" : "Incompleted"}</p>
-      <button className="btn btn-danger rounded-3">Delete</button>
+      <button className="btn btn-danger rounded-3">
+        <FcHighPriority />
+        Delete
+      </button>
     </div>
   )
 }
