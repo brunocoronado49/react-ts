@@ -3,14 +3,15 @@ import { TaskCard } from "./TaskCard"
 
 interface Props {
   tasks: Task[]
+  deletTask: (id: number) => void
 }
 
-export const TaskList = ({ tasks }: Props) => {
+export const TaskList = ({ tasks, deletTask }: Props) => {
   return (
     <>
-      {tasks.map((task, index) => (
-        <div className="col-md-5" key={index}>
-          <TaskCard task={task} />
+      {tasks.map(task => (
+        <div className="col-md-5 pb-4" key={task.id}>
+          <TaskCard task={task} deleteTask={deletTask} />
         </div>
       ))}
     </>

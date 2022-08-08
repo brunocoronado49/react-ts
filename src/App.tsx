@@ -12,8 +12,15 @@ export function App({ appTitle }: AppInterface) {
     description: "learning react with ts",
     completed: false
   }])
-  
-  const addTask = (task: Task) => setTasks([...tasks, task])
+
+  const getDatecurrentTimestamp = (): number => new Date().getTime()
+
+  const deleteTask = (id: number) => {
+    const tasksDeleted = tasks.filter(task => task.id !== id)
+    setTasks(tasksDeleted)
+  }
+
+  const addTask = (task: Task) => setTasks([...tasks, { ...task, id: getDatecurrentTimestamp() + 2, completed: false }])
 
   return (
     <div style={{ height: "100vh" }}>
@@ -33,7 +40,7 @@ export function App({ appTitle }: AppInterface) {
           </div>
           <div className="col-md-7">
             <div className="row">
-              <TaskList tasks={tasks} />
+              <TaskList tasks={tasks} deletTask={deleteTask} />
             </div>
           </div>
         </div>
