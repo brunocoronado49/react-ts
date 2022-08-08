@@ -5,12 +5,12 @@ interface Props {
   tasks: Task[]
 }
 
-export const TaskList = ({tasks}: Props) => {
+export const TaskList = ({ tasks }: Props) => {
   return (
     <>
       {tasks.map((task, index) => (
-        <div className="col-md-5">
-          <TaskCard task={task} key={index}/>
+        <div className="col-md-5" key={index}>
+          <TaskCard task={task} />
         </div>
       ))}
     </>

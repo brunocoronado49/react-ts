@@ -12,6 +12,8 @@ export function App({ appTitle }: AppInterface) {
     description: "learning react with ts",
     completed: false
   }])
+  
+  const addTask = (task: Task) => setTasks([...tasks, task])
 
   return (
     <div style={{ height: "100vh" }}>
@@ -27,7 +29,7 @@ export function App({ appTitle }: AppInterface) {
       <main className="container p-4">
         <div className="row">
           <div className="col-md-5">
-            <TaskForm />
+            <TaskForm addTask={addTask} />
           </div>
           <div className="col-md-7">
             <div className="row">
